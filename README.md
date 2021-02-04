@@ -58,11 +58,14 @@ TBD
 # CONTRIBUTIONS
 This was an individual project.
 	
-## IMAGE CREDITS
-Header adapted from image by filo/iStockPhoto.  Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo)
-	
-## FONTS
-The {font} used under a Creative Commons license, courtesy of {designer} and Google LLC, organized under the laws of the State of Delaware, USA, and operating under the laws of the USA.
+## CREDITS
+### Images
+* Header adapted from image by filo/iStockPhoto.  
+* Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo)
+
+### Seed Database
+* Used the mySQL test_db as a seed file. The database contains about 300,000 employee records, with 2.8 million salary entries: https://github.com/datacharmer/test_db/blob/master/README.md 
+* Seed file imported to mySQL with help from Joshua Schuett: How to Download and Install the Employees Sample Database," https://www.youtube.com/watch?v=eP_W-nbpYIo.  
 
 ## QUESTIONS
 To ask questions or contribute project feedback, ping me @melissakinsey (GitHub), @KinseyMelissa (Twitter) or kinsey.melissa@gmail.com.
