@@ -1,3 +1,7 @@
+require('dotenv').config()
+
+var inquirer = require("inquirer");
+
 // Require console.table
 const cTable = require("console.table");
 // Object {getTable: function()}
@@ -13,7 +17,7 @@ const cTable = require("console.table");
 
 // Require mySQL
 
-const mysql = require("mySQL");
+const mysql = require("mysql");
 
 // Use createConnection() method to join node.js to mySQL
 
@@ -28,11 +32,10 @@ const db = mysql.createConnection({
 // Install mySQL Connector/Node.js to upgrade authentication protocol: https://dev.mysql.com/doc/dev/connector-nodejs/8.0/
 
 function getEmployees() {
-  var query = connection.query("SELECT * FROM employees", function(err, res) {
+  var query = db.query("SELECT employees.name,employees.age FROM employees", function(err, res) {
     if (err) throw err;
-    for (var i = 0; i < res.length; i++) {
-      console.log(res[i].first_name + res[i].last_name + " | " + res[i].role_id + " | " + res[i].manager_id);
-    }
+      console.table(res);
+    
   });
 
   // logs the actual query being run
@@ -54,3 +57,18 @@ connection.end(function(err) {
   }
   console.log("Close the database connection.");
 });
+
+inquirer
+  .prompt([
+    /* Pass your questions in here */
+  ])
+  .then(answers => {
+    // Use user feedback for... whatever!!
+  })
+  .catch(error => {
+    if(error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else when wrong
+    }
+  });
