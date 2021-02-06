@@ -1,6 +1,17 @@
-// Require node.js and mySQL
+// Require console.table
+const cTable = require("console.table");
+// Object {getTable: function()}
+// console.table([
+//   {
+//     name: "foo",
+//     age: 10
+//   }, {
+//     name: "bar",
+//     age: 20
+//   }
+// ]);
 
-// const express = require("express");
+// Require mySQL
 
 const mysql = require("mySQL");
 
@@ -16,6 +27,20 @@ const db = mysql.createConnection({
 // Use node.js to connect to employees test_db. Include a callback function to throw error if the database can't connect.
 // Install mySQL Connector/Node.js to upgrade authentication protocol: https://dev.mysql.com/doc/dev/connector-nodejs/8.0/
 
+function getEmployees() {
+  var query = connection.query("SELECT * FROM employees", function(err, res) {
+    if (err) throw err;
+    for (var i = 0; i < res.length; i++) {
+      console.log(res[i].first_name + res[i].last_name + " | " + res[i].role_id + " | " + res[i].manager_id);
+    }
+  });
+
+  // logs the actual query being run
+  console.log(query.sql);
+  connection.end();
+}
+
+
 db.connect(function (err) {
     if (err) {
         return console.error("error: " + err.message);
@@ -23,44 +48,9 @@ db.connect(function (err) {
     console.log("Connected to the Tube City employee database!");
 });
 
-// const app = express();
-
-app.get("/createdb", (req, res) => {
-
-    // let sql = "CREATE DATABASE nodemysql";
-  
-    db.query(sql, (err) => {
-      if (err) {
-        throw err;
-      }
-      res.send("Tube City employee database created");
-    });
-  });
-
-// const MySQL = require("MySQL")
-// function queryEmployees(query, config) {
-//   // Create new MySQL connection using credentials from cypress.json env's
-//   const connection = MySQL.createConnection(config.env.db)
-//   // Connect to db
-//   connection.connect()
-//   // Execute query and disconnect to db as a promise
-//   return new Promise((resolve, reject) => {
-//    connection.query(query, (error, results) => {
-//       if (error) reject(error)
-//       else {
-//         connection.end()
-//         // console.log(results)
-//         return resolve(results)
-//       }
-//     })
-//   })
-// }
-// 
-// module.exports = (on, config) => {
-//   // Usage: cy.task("queryDb", query)
-//   on("task", {
-//     queryDb : query =>  {
-//       return queryEmployees(query, config)
-//     },
-//   })
-// }
+connection.end(function(err) {
+  if (err) {
+    return console.log("error:" + err.message);
+  }
+  console.log("Close the database connection.");
+});
