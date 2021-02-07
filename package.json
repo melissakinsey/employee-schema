@@ -4,7 +4,8 @@
   "description": "App that helps manage a company's employees using node, inquirer, and MySQL.",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "echo \"Error: No test specified.\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,13 @@
   "author": "Melissa Kinsey",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/melissakinsey/employees/issues"
+    "url": "https://github.com/melissakinsey/employee-schema/issues"
   },
-  "homepage": "https://github.com/melissakinsey/employees#readme"
+  "homepage": "https://github.com/melissakinsey/employee-schema#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+"dependencies": {
+  "mysql": "^2.18.1"
+}
 }

@@ -26,7 +26,7 @@
 This tool helps manage a company's employees using node, inquirer, and MySQL.
 
 ## Project Repo 
-https://github.com/melissakinsey/employees
+https://github.com/melissakinsey/employee-schema 
 	
 ## GitHub Pages 
 undefined
@@ -61,11 +61,7 @@ This was an individual project.
 ## CREDITS
 ### Images
 * Header adapted from image by filo/iStockPhoto.  
-* Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo)
-
-### Seed Database
-* Used the mySQL test_db as a seed file. The database contains about 300,000 employee records, with 2.8 million salary entries: https://github.com/datacharmer/test_db/blob/master/README.md 
-* Seed file imported to mySQL with help from Joshua Schuett: How to Download and Install the Employees Sample Database," https://www.youtube.com/watch?v=eP_W-nbpYIo.  
+* Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo)  
 
 ## QUESTIONS
 To ask questions or contribute project feedback, ping me @melissakinsey (GitHub), @KinseyMelissa (Twitter) or kinsey.melissa@gmail.com.
