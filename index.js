@@ -7,6 +7,9 @@ const cTable = require("console.table");
 // Require mySQL
 const mysql = require("mysql");
 
+// Require inquirer
+const inquirer = require("inquirer");
+
 // Use createConnection() method to join node.js to mySQL
 const db = mysql.createConnection({
     host: "localhost",
@@ -18,7 +21,7 @@ const db = mysql.createConnection({
 // Use node.js to connect to employees test_db. Include a callback function to throw error if the database can't connect.
 // Install mySQL Connector/Node.js to upgrade authentication protocol: https://dev.mysql.com/doc/dev/connector-nodejs/8.0/
 function getEmployees() {
-  var query = db.query("SELECT * FROM employees", function(err, res) {
+  var query = db.query("DROP TABLE employees.dept_emp_latest_date", function(err, res) {
     if (err) throw err;
       console.table(res);
   });
@@ -37,7 +40,7 @@ db.connect(function (err) {
 });
 
 // Close connection cleanly
-connection.end(function(err) {
+db.end(function(err) {
   if (err) {
     return console.log("error:" + err.message);
   }
@@ -45,28 +48,34 @@ connection.end(function(err) {
 });
 
 inquirer
-.prompt
-type: "list";
-cTable: "role";
-message: "What would you like to do?";
-choices: ["Add", "View", "Update", "Delete", "I'm finished"],
+  .prompt([
+    {
+      type: "list",
+      cTable: "role",
+      message: "What would you like to do?",
+      choices: ["Add", "View", "Update", "Delete", "I'm finished"],
+    },
+  ]);
 
-.then(response) {
+prompt.then(response => {
 // console.log(response)
 if (response.role === "add") {
-engineerPrompt()
+addPrompt()
 }
 else if (response.role === "view") {
-managerPrompt()
+viewPrompt()
 }
-else if (response.role === "intern") {
-internPrompt()
+else if (response.role === "update") {
+updatePrompt()
 }
+else if (response.role === "delete") {
+  deletePrompt()
+  }
 else {
 // console.log("I"m finished.")
 //invoke html generator function
 generateHTML(team)
 }
-}
-
+},
+)
 init()
