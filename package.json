@@ -1,0 +1,36 @@
+{
+  "name": "employee-schema",
+  "version": "1.0.0",
+  "description": "App that helps manage a company's employees using node, inquirer, and MySQL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melissakinsey/employee-schema.git"
+  },
+  "keywords": [
+    "employee-tracker",
+    "employees",
+    "tracker",
+    "app",
+    "bootcamp",
+    "boot-camp",
+    "role",
+    "department",
+    "schema",
+    "mySQL",
+    "node-js",
+    "node",
+    "nodemon",
+    "workbench",
+    "inquirer"
+  ],
+  "author": "Melissa Kinsey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/melissakinsey/employees/issues"
+  },
+  "homepage": "https://github.com/melissakinsey/employees#readme"
+}
