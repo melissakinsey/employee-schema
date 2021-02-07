@@ -1,26 +1,13 @@
-require('dotenv').config()
-
-var inquirer = require("inquirer");
+// Require .env
+require("dotenv").config()
 
 // Require console.table
 const cTable = require("console.table");
-// Object {getTable: function()}
-// console.table([
-//   {
-//     name: "foo",
-//     age: 10
-//   }, {
-//     name: "bar",
-//     age: 20
-//   }
-// ]);
 
 // Require mySQL
-
 const mysql = require("mysql");
 
 // Use createConnection() method to join node.js to mySQL
-
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -30,20 +17,18 @@ const db = mysql.createConnection({
 
 // Use node.js to connect to employees test_db. Include a callback function to throw error if the database can't connect.
 // Install mySQL Connector/Node.js to upgrade authentication protocol: https://dev.mysql.com/doc/dev/connector-nodejs/8.0/
-
 function getEmployees() {
-  var query = db.query("SELECT employees.name,employees.age FROM employees", function(err, res) {
+  var query = db.query("SELECT * FROM employees", function(err, res) {
     if (err) throw err;
       console.table(res);
-    
   });
 
-  // logs the actual query being run
+  // Log the actual query being run
   console.log(query.sql);
   connection.end();
 }
 
-
+// Throw error if connection fails
 db.connect(function (err) {
     if (err) {
         return console.error("error: " + err.message);
@@ -51,6 +36,7 @@ db.connect(function (err) {
     console.log("Connected to the Tube City employee database!");
 });
 
+// Close connection cleanly
 connection.end(function(err) {
   if (err) {
     return console.log("error:" + err.message);
@@ -59,16 +45,28 @@ connection.end(function(err) {
 });
 
 inquirer
-  .prompt([
-    /* Pass your questions in here */
-  ])
-  .then(answers => {
-    // Use user feedback for... whatever!!
-  })
-  .catch(error => {
-    if(error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else when wrong
-    }
-  });
+.prompt
+type: "list";
+cTable: "role";
+message: "What would you like to do?";
+choices: ["Add", "View", "Update", "Delete", "I'm finished"],
+
+.then(response) {
+// console.log(response)
+if (response.role === "add") {
+engineerPrompt()
+}
+else if (response.role === "view") {
+managerPrompt()
+}
+else if (response.role === "intern") {
+internPrompt()
+}
+else {
+// console.log("I"m finished.")
+//invoke html generator function
+generateHTML(team)
+}
+}
+
+init()
