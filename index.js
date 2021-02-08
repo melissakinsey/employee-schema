@@ -92,7 +92,7 @@ function viewDepartment() {
   .prompt({
     name: "viewDepartment",
     type: "input",
-    message: "What is the new department ID?"
+    message: "What is the department ID?"
   })
   .then(function (response) {
     console.log(response.viewDepartment);
@@ -106,68 +106,92 @@ function viewDepartment() {
   })
 }
 
-function updateRole() {
-  let data={}
+function viewRole() {
   inquirer
-  .prompt({
-    name: "id",
-    type: "input",
-    message: "Which role ID would you like to update? Choose 51 through 58."
-  })
-  .then(function (response) {
-    data.id = response.id
-    inquirer.prompt({
-      name: "newTitle",
+    .prompt({
+      name: "viewRole",
       type: "input",
-      message: "What is the new title associated with this role ID?"
+      message: "Which role would you like to see?"
     })
     .then(function (response) {
-      db.query("UPDATE role SET title = ? WHERE id = ?", [response.newTitle, Number(data.id)],
-      function (err, res) {
-        if (err) throw err;
-        console.table(res)
-        .then(console.log("The title has been updated. For further confirmation, please see the 'roles' table in mySQL. \(Don't forget to click the blue refresh button.\)"));
-        runSearch()
-      }); 
-    })
-  })
+      console.log(response.viewRole);
+      db.query("SELECT * FROM role WHERE ?", [{
+        title: response.viewRole,
+      }],
+        function (err, res) {
+          if (err) throw err;
+          console.table(res);
+            runSearch();
+        },
+      )
+    },
+
+
+      function updateRole() {
+        let data = {}
+        inquirer
+          .prompt({
+            name: "id",
+            type: "input",
+            message: "Which role ID would you like to update? Choose 51 through 58."
+          })
+          .then(function (response) {
+            data.id = response.id
+            inquirer.prompt({
+              name: "newTitle",
+              type: "input",
+              message: "What is the new title associated with this role ID?"
+            })
+              .then(function (response) {
+                db.query("UPDATE role SET title = ? WHERE id = ?", [response.newTitle, Number(data.id)],
+                  function (err, res) {
+                    if (err) throw err;
+                    console.table(res)
+                      .then(console.log("The title has been updated. For further confirmation, please see the 'roles' table in mySQL. \(Don't forget to click the blue refresh button.\)"));
+                    runSearch()
+                  });
+              })
+          })
+      },
+
+
+
+      // // Log the actual query being run
+      // console.log(query.sql);
+      // connection.end();
+
+
+      //   else if (response.role === "view") {
+      //     viewPrompt()
+      //   }
+      //   else if (response.role === "update") {
+      //     updatePrompt()
+      //   }
+      //   else if (response.role === "delete") {
+      //     deletePrompt()
+      //   }
+      //   else {
+      //     // console.log("I"m finished.")
+      //     //invoke html generator function
+      //     generateHTML(team)
+      //   }
+      // },
+      // )
+      // init()
+      // 
+
+
+
+
+      // Close connection cleanly
+      function quit() {
+        db.end(function (err) {
+          if (err) {
+            return console.log("error:" + err.message);
+          }
+          console.log("Close the database connection.");
+        })
+      })
+}
   
-}
-
-
-
-// // Log the actual query being run
-// console.log(query.sql);
-// connection.end();
-
-
-//   else if (response.role === "view") {
-//     viewPrompt()
-//   }
-//   else if (response.role === "update") {
-//     updatePrompt()
-//   }
-//   else if (response.role === "delete") {
-//     deletePrompt()
-//   }
-//   else {
-//     // console.log("I"m finished.")
-//     //invoke html generator function
-//     generateHTML(team)
-//   }
-// },
-// )
-// init()
-// 
-
-
-
-
-// Close connection cleanly
-function quit(){db.end(function(err) {
-  if (err) {
-    return console.log("error:" + err.message);
-  }
-  console.log("Close the database connection.");
-});
-}
+  
