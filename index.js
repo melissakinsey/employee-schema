@@ -4,6 +4,8 @@ require("dotenv").config();
 // Require console.table
 const cTable = require("console.table");
 
+console.table([{name:'John',age:32},{name:'John2',age:42}])
+
 // Require mySQL
 const mysql = require("mysql");
 
@@ -102,6 +104,34 @@ function viewDepartment() {
       console.table(res);
     }); 
   })
+}
+
+function updateRole() {
+  let data={}
+  inquirer
+  .prompt({
+    name: "id",
+    type: "input",
+    message: "Which role ID would you like to update? Choose 51 through 58."
+  })
+  .then(function (response) {
+    data.id = response.id
+    inquirer.prompt({
+      name: "newTitle",
+      type: "input",
+      message: "What is the new title associated with this role ID?"
+    })
+    .then(function (response) {
+      db.query("UPDATE role SET title = ? WHERE id = ?", [response.newTitle, Number(data.id)],
+      function (err, res) {
+        if (err) throw err;
+        console.table(res)
+        .then(console.log("The title has been updated. For further confirmation, please see the 'roles' table in mySQL. \(Don't forget to click the blue refresh button.\)"));
+        runSearch()
+      }); 
+    })
+  })
+  
 }
 
 
