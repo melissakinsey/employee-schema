@@ -4,8 +4,6 @@ require("dotenv").config();
 // Require console.table
 const cTable = require("console.table");
 
-console.table([{name:'John',age:32},{name:'John2',age:42}])
-
 // Require mySQL
 const mysql = require("mysql");
 
@@ -73,125 +71,150 @@ function runSearch() {
   )
 }
 
-// function addDepartment() {
-//   inquirer
-//     .prompt({
-//       name: "id",
-//       type: "input",
-//       message: "What is the new department ID?"
-//     })
-//     .then(function (response) {
-//       console.log(response.addDepartment);
-//       db.query("INSERT INTO department(id)"); 
-//     })
-//   
-// }
+function addDepartment() {
+  inquirer
+  .prompt({
+    name: "addDepartment",
+    type: "input",
+    message: "What is the new department name?"
+  })
+  .then(function (response) {
+    console.log(response.addDepartment);
+    db.query("INSERT INTO department SET ?",
+    {
+      name: response.addDepartment
+    }, function (err, res) {
+      if (err) throw err;
+      console.table(res);
+      console.log("The department has been added. For further confirmation, please see the 'department' table in mySQL. \(Don't forget to click the blue refresh button.\)");
+        runSearch()
+    })
+  }); 
+}
 
 function viewDepartment() {
   inquirer
   .prompt({
     name: "viewDepartment",
     type: "input",
-    message: "What is the department ID?"
+    message: "What is the department ID? Choose an ID between 1 and 8."
   })
   .then(function (response) {
     console.log(response.viewDepartment);
     db.query("SELECT * FROM department WHERE ?", [{
-      id: response.viewDepartment,
+      name: response.viewDepartment,
     }],
     function (err, res) {
       if (err) throw err;
       console.table(res);
-    }); 
+      runSearch()
+    });
   })
 }
 
 function viewRole() {
   inquirer
-    .prompt({
-      name: "viewRole",
+  .prompt({
+    name: "viewRole",
+    type: "input",
+    message: "Which role would you like to see?"
+  })
+  .then(function (response) {
+    console.log(response.viewRole);
+    db.query("SELECT * FROM role WHERE ?", [{
+      title: response.viewRole,
+    }],
+    function (err, res) {
+      if (err) throw err;
+      console.table(res);
+      runSearch();
+    });
+  })
+}
+
+function viewEmployee() {
+  inquirer
+  .prompt({
+    name: "viewEmployee",
+    type: "input",
+    message: "Search by entering the employee's last name."
+  })
+  .then(function (response) {
+    console.log(response.viewEmployee);
+    db.query("SELECT * FROM employee WHERE ?", [{
+      last_name: response.viewEmployee,
+    }],
+    function (err, res) {
+      if (err) throw err;
+      console.table(res);
+      runSearch()
+    });
+  })
+}
+
+function updateRole() {
+  let data = {}
+  inquirer
+  .prompt({
+    name: "id",
+    type: "input",
+    message: "Which role ID would you like to update? Choose a role ID between 51 and 58."
+  })
+  .then(function (response) {
+    data.id = response.id
+    inquirer.prompt({
+      name: "newTitle",
       type: "input",
-      message: "Which role would you like to see?"
+      message: "What is the new title associated with this role ID?"
     })
     .then(function (response) {
-      console.log(response.viewRole);
-      db.query("SELECT * FROM role WHERE ?", [{
-        title: response.viewRole,
-      }],
-        function (err, res) {
-          if (err) throw err;
-          console.table(res);
-            runSearch();
-        },
-      )
-    },
-
-
-      function updateRole() {
-        let data = {}
-        inquirer
-          .prompt({
-            name: "id",
-            type: "input",
-            message: "Which role ID would you like to update? Choose 51 through 58."
-          })
-          .then(function (response) {
-            data.id = response.id
-            inquirer.prompt({
-              name: "newTitle",
-              type: "input",
-              message: "What is the new title associated with this role ID?"
-            })
-              .then(function (response) {
-                db.query("UPDATE role SET title = ? WHERE id = ?", [response.newTitle, Number(data.id)],
-                  function (err, res) {
-                    if (err) throw err;
-                    console.table(res)
-                      .then(console.log("The title has been updated. For further confirmation, please see the 'roles' table in mySQL. \(Don't forget to click the blue refresh button.\)"));
-                    runSearch()
-                  });
-              })
-          })
-      },
-
-
-
-      // // Log the actual query being run
-      // console.log(query.sql);
-      // connection.end();
-
-
-      //   else if (response.role === "view") {
-      //     viewPrompt()
-      //   }
-      //   else if (response.role === "update") {
-      //     updatePrompt()
-      //   }
-      //   else if (response.role === "delete") {
-      //     deletePrompt()
-      //   }
-      //   else {
-      //     // console.log("I"m finished.")
-      //     //invoke html generator function
-      //     generateHTML(team)
-      //   }
-      // },
-      // )
-      // init()
-      // 
-
-
-
-
-      // Close connection cleanly
-      function quit() {
-        db.end(function (err) {
-          if (err) {
-            return console.log("error:" + err.message);
-          }
-          console.log("Close the database connection.");
-        })
-      })
+      db.query("UPDATE role SET title = ? WHERE id = ?", [response.newTitle, Number(data.id)],
+      function (err, res) {
+        if (err) throw err;
+        console.table(res)
+        .then(console.log("The title has been updated. For further confirmation, please see the 'roles' table in mySQL. \(Don't forget to click the blue refresh button.\)"));
+        runSearch()
+      });
+    })
+  })
 }
-  
-  
+
+
+
+// // Log the actual query being run
+// console.log(query.sql);
+// connection.end();
+
+
+//   else if (response.role === "view") {
+//     viewPrompt()
+//   }
+//   else if (response.role === "update") {
+//     updatePrompt()
+//   }
+//   else if (response.role === "delete") {
+//     deletePrompt()
+//   }
+//   else {
+//     // console.log("I"m finished.")
+//     //invoke html generator function
+//     generateHTML(team)
+//   }
+// },
+// )
+// init()
+// 
+
+
+
+
+// Close connection cleanly
+function quit() {
+  db.end(function (err) {
+    if (err) {
+      return console.log("error:" + err.message);
+    }
+    console.log("Close the database connection.");
+  }
+  )
+}
