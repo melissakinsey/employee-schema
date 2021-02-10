@@ -17,7 +17,6 @@
 * [Usage](#Usage)
 * [Features](#Features)
 * [Technical Specs](#Technical_Specs)
-* [Tests](#Tests)
 * [Lessons Learned](#Lessons_Learned)
 * [Contributions](#Contributions)
 
@@ -25,44 +24,38 @@
 # DESCRIPTION
 This tool helps manage a company's employees using node, inquirer, and MySQL.
 
+![employee-db-app](assets/employee-db-app.png)
+
 ## Project Repo 
 https://github.com/melissakinsey/employee-schema 
-	
-## GitHub Pages 
-undefined
-	
-## Screencast
-To come
-	
-# USER STORY
+		
+## USER STORY
 *AS A* business owner *I WANT TO* view and manage the departments, roles, and employees in my company *SO I CAN* organize and plan my business.
 	
-# INSTALLATION
-undefined
 	
 # USAGE
-This app is used to view and manage the departments, roles, and employees in a company.
+To use this app, type 'node index.js' on the command line.
 	
 # FEATURES
-This app makes it easy for nondevelopers to view and interact with information stored in content management systems (CMSs) and other databases. Users can access information according to employee, department, or role. This information includes detailed records of employees' names, id numbers, titles, and salaries.
+This app makes it easy for nondevelopers to view and interact with information stored in content management systems (CMSs) and other databases. Users can access information according to employee, department, or role. This information includes names, id numbers, titles, and salaries.
 	
 # TECHNICAL SPECS
-* The project is built on the command line. * Uses mySQL to store database records. * Uses npm inquirer to interact with users. * Formats data with npm console.table. * Prepopulates the database with records from a seed.sql file.
-	
-# TESTS
-This app was tested in mySQL Workbench.
+* Runs on the command line. 
+* Uses mySQL to store database records. 
+* Uses npm inquirer to interact with users. 
+* Formats data with npm console.table. 
 	
 # LESSONS LEARNED 
-TBD
+In the past when I've worked with entity relationship diagrams, they seemed a bit abstract and obscure. Working with SQL databases, schema, and tables really helped me understand what those conceptual models represent. Although I ended up scrapping it, I started out using a seed database containing 300,000 employee records. I could see how useful it might be to slice and dice real demographic data in various ways, depending on the use case.  
 
 # CONTRIBUTIONS
-This was an individual project.
+This was an individual project. Thanks, as always, to my study group and TAs!
 	
-## CREDITS
-### Images
+# IMAGE CREDITS
 * Header adapted from image by filo/iStockPhoto.  
 * Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo)  
 
-## QUESTIONS
+
+# QUESTIONS
 To ask questions or contribute project feedback, ping me @melissakinsey (GitHub), @KinseyMelissa (Twitter) or kinsey.melissa@gmail.com.
 
