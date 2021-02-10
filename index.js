@@ -92,12 +92,34 @@ function addDepartment() {
   }); 
 }
 
+function addRole() {
+  inquirer
+  .prompt({
+    name: "addRole",
+    type: "input",
+    message: "Which role would you like to add? Please enter the new title as you'd like it to appear in the Tube City HR database."
+  })
+  .then(function (response) {
+    console.log(response.addRole);
+    db.query("INSERT INTO role SET ?",
+    {
+      title: response.addRole
+    }, function (err, res) {
+      if (err) throw err;
+      console.table(res);
+      console.log("The role has been added.");
+        runSearch()
+    })
+  }); 
+}
+
+
 function viewDepartment() {
   inquirer
   .prompt({
     name: "viewDepartment",
     type: "input",
-    message: "What is the department ID? Choose an ID between 1 and 8."
+    message: "Which department would you like to view?"
   })
   .then(function (response) {
     console.log(response.viewDepartment);
