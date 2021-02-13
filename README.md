@@ -46,7 +46,7 @@ This app makes it easy for nondevelopers to view and interact with information s
 * Formats data with npm console.table. 
 	
 # LESSONS LEARNED 
-In the past when I've worked with entity relationship diagrams, they seemed a bit abstract and obscure. Working with SQL databases, schema, and tables really helped me understand what those conceptual models represent. Although I ended up scrapping it, I started out using a seed database containing 300,000 employee records. I could see how useful it might be to slice and dice real demographic data in various ways, depending on the use case.  
+Working with SQL databases, schema, and tables helped me better nderstand the conceptual models used in entity relationship diagrams. Although I ended up scrapping it, I started out using a seed database containing 300,000 employee records. I could see how powerful SQL might be in slicing and dicing real demographic data in various ways, depending on the use case.  
 
 # CONTRIBUTIONS
 This was an individual project. Thanks, as always, to my study group and TAs!
