@@ -113,37 +113,38 @@ function addRole() {
   }); 
 }
 
-// function addEmployee() {
-//   inquirer
-//   .prompt({
-//     type: "input",
-//     message: "What is the employee's first name?",
-//     name: "first_name",
-//   },
-//   {
-//     type: "input",
-//     message: "What is the employee's last name?",
-//     name: "last_name",
-//   },
-//     {
-//       type: "input",
-//       message: "What is the employee's role ID? Choose an ID number between 1 and 8",
-//       name: "role_id",
-//     }
-//   )
-//   .then(function (response) {
-//     console.log(response.addEmployee);
-//     db.query("INSERT INTO employee SET ?",
-//     {
-//       ({ first_name, res.last_name, })
-//     }, function (err, res) {
-//       if (err) throw err;
-//       console.table(res);
-//       console.log("The employee has been added. For further confirmation, please see the 'employee' table in mySQL. \(Don't forget to click the blue refresh button.\)");
-//         runSearch()
-//     })
-//   }); 
-// }
+function addEmployee() {
+  inquirer
+    .prompt([
+      {
+    type: "input",
+    message: "What is the employee's first name?",
+    name: "first_name",
+  },
+  {
+    type: "input",
+    message: "What is the employee's last name?",
+    name: "last_name",
+  },
+    {
+      type: "input",
+      message: "What is the employee's role ID? Choose an ID number between 1 and 8",
+      name: "role_id",
+    }]
+  )
+  .then(function (response) {
+    console.log(response);
+    db.query("INSERT INTO employee SET ?",
+      {
+        first_name: response.first_name, last_name: response.last_name, role_id: response.role_id
+    }, function (err, res) {
+      if (err) throw err;
+      console.table(res);
+      console.log("The employee has been added. For further confirmation, please see the 'employee' table in mySQL. \(Don't forget to click the blue refresh button.\)");
+        runSearch()
+    })
+  }); 
+}
 
 function viewDepartment() {
   inquirer

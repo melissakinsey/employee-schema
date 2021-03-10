@@ -1,6 +1,8 @@
+DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
+	id int NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
-    role_id INT AUTO_INCREMENT PRIMARY KEY,
-    manager_id INT
+    role_id INT,
+    PRIMARY KEY (id)
 );
