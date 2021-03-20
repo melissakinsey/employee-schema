@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "App that helps manage a company's employees using node, inquirer, and MySQL.",
   "main": "index.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: No test specified.\" && exit 1",
     "start": "nodemon index.js"
