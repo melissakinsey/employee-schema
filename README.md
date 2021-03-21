@@ -19,25 +19,25 @@
 * [Technical Specs](#Technical_Specs)
 * [Lessons Learned](#Lessons_Learned)
 * [Contributions](#Contributions)
-
 	
+![Screenshots of employee tracker](assets/employee-schema-cover.png)
+
 # DESCRIPTION
-This tool helps manage a company's employees using node, inquirer, and MySQL.
+This tool helps manage a company's employees using node, inquirer, and MySQL. 
 
-![employee-db-app](assets/employee-db-app.png)
-
-## Project Repo 
-https://github.com/melissakinsey/employee-schema 
+## Project Repo & Demo
+The[code for this employee tracker](https://github.com/melissakinsey/employee-schema) is housed on GitHub.  
 		
-## USER STORY
-*AS A* business owner *I WANT TO* view and manage the departments, roles, and employees in my company *SO I CAN* organize and plan my business.
+## User Story
+*AS A* business owner *I WANT TO* view and manage the departments, roles, and employees in my company *SO I CAN* organize and plan my business.	
 	
-	
-# USAGE
-To use this app, type 'node index.js' on the command line.
+## Usage
+To use this app, type 'node index.js' on the command line. Then choose the number of the task you'd like to accomplish. To add a role, for example, select "2" on your keyboard. To see how the tracker works, watch this quick [video demo](https://youtu.be/4snwFDtDfyQ).
 	
 # FEATURES
 This app makes it easy for nondevelopers to view and interact with content management systems (CMSs) and other databases. Users can access data—including names, id numbers, titles, and salaries—by employee, department, or role.
+
+![employee-db-app](assets/employee-db-app.png)
 	
 # TECHNICAL SPECS
 * Runs on the command line. 
@@ -52,8 +52,10 @@ Working with SQL databases, schema, and tables helped me better nderstand the co
 This was an individual project. Thanks, as always, to my study group and TAs!
 	
 # IMAGE CREDITS
-* Header adapted from image by filo/iStockPhoto.  
-* Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo)  
+* Header adapted from image by filo/iStockPhoto.
+![Original iStock image](assets/header-original.png)  
+* Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo) 
+![Badge Generator](assets/badge-generator.png) 
 
 
 # QUESTIONS
