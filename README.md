@@ -56,10 +56,14 @@ This was an individual project. Thanks, as always, to my study group and TAs!
 
 ![Original iStock image](assets/header-original.png)  
 * Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo)
- 
+
 ![Badge Generator](assets/badge-generator.png) 
 
 
-# QUESTIONS
-To ask questions or contribute project feedback, ping me @melissakinsey (GitHub), @KinseyMelissa (Twitter) or kinsey.melissa@gmail.com.
+# CONTACT ME
+Ping me with questions or project feedback:
+* GitHub: [@melissakinsey](https://melissakinsey.github.io/portfolio/)
+* Twitter: @KinseyMelissa
+* Email: [kinsey.melissa@gmail.com](mailto:kinsey.melissa@gmail.com)
+* LinkedIn: [linkedin.com/melissajaynekinsey](https://www.linkedin.com/in/melissajaynekinsey/)
 
