@@ -40,6 +40,9 @@
   },
   "dependencies": {
     "console.table": "^0.10.0",
-    "mysql": "^2.18.1"
+    "dotenv": "^8.2.0",
+    "inquirer": "^8.0.0",
+    "mysql": "^2.18.1",
+    "node": "^15.10.0"
   }
 }
