@@ -37,7 +37,7 @@ https://github.com/melissakinsey/employee-schema
 To use this app, type 'node index.js' on the command line.
 	
 # FEATURES
-This app makes it easy for nondevelopers to view and interact with information stored in content management systems (CMSs) and other databases. Users can access information according to employee, department, or role. This information includes names, id numbers, titles, and salaries.
+This app makes it easy for nondevelopers to view and interact with content management systems (CMSs) and other databases. Users can access data—including names, id numbers, titles, and salaries—by employee, department, or role.
 	
 # TECHNICAL SPECS
 * Runs on the command line. 
