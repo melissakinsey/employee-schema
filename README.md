@@ -26,7 +26,7 @@
 This tool helps manage a company's employees using node, inquirer, and MySQL. 
 
 ## Project Repo & Demo
-The[code for this employee tracker](https://github.com/melissakinsey/employee-schema) is housed on GitHub.  
+The [code for this employee tracker](https://github.com/melissakinsey/employee-schema) is housed on GitHub.  
 		
 ## User Story
 *AS A* business owner *I WANT TO* view and manage the departments, roles, and employees in my company *SO I CAN* organize and plan my business.	
@@ -53,8 +53,10 @@ This was an individual project. Thanks, as always, to my study group and TAs!
 	
 # IMAGE CREDITS
 * Header adapted from image by filo/iStockPhoto.
+
 ![Original iStock image](assets/header-original.png)  
-* Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo) 
+* Badges created using Michael Currin's nifty [Badge Generator](https://michaelcurrin.github.io/badge-generator/#/repo)
+ 
 ![Badge Generator](assets/badge-generator.png) 
 
 
