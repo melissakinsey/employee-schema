@@ -63,7 +63,7 @@ This was an individual project. Thanks, as always, to my study group and TAs!
 # CONTACT ME
 Ping me with questions or project feedback:
 * GitHub: [@melissakinsey](https://melissakinsey.github.io/portfolio/)
-* Twitter: @KinseyMelissa
+* Twitter: [@KinseyMelissa](https://twitter.com/KinseyMelissa)
 * Email: [kinsey.melissa@gmail.com](mailto:kinsey.melissa@gmail.com)
 * LinkedIn: [linkedin.com/melissajaynekinsey](https://www.linkedin.com/in/melissajaynekinsey/)
 
